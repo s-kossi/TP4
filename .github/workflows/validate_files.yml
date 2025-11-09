@@ -1,0 +1,27 @@
+name: Valdate Files Before Deployment
+
+on:
+  push:
+    branches:
+      - dev
+      - uat
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check if required files exist
+        run: |
+          if [ ! -f index.html ]; then
+            echo "Error: index.html is missing!"
+            exit 1
+          fi
+          if [ ! -f style.css ]; then
+            echo "Error: style.css is missing"
+            exit 1
+          fi
