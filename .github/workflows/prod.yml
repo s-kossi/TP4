@@ -19,7 +19,7 @@ jobs:
           python-version: '3.x'
 
       - name: Run Python tests
-        run: python ./github/workflows/test.py
+        run: python ./tests/test2.py
 
       - name: Deploy to GitHub Pages (Production)
         uses: peaceiris/actions-gh-pages@v3
